@@ -3,23 +3,93 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI trophy checklist</title>
+<title>Leonida Legend — GTA VI Trophy Guide & Tracker (55 Trophies, Fully Cited)</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>GTA VI trophy checklist</h1>
-  <p id="progress">0 of 55 earned</p>
+<header class="hero">
+  <p class="kicker">Grand Theft Auto VI · PlayStation 5 · Offline guide & tracker</p>
+  <h1>Leonida Legend: the GTA VI trophy guide where every step shows its source</h1>
+  <p class="sub">All 55 official trophies with numbered, cited steps, a 7-stage platinum roadmap, the missable watch list, and a checklist that saves on this device. No network needed: the whole guide lives in this folder.</p>
+  <div class="audit" id="audit" aria-live="polite">
+    <div class="stat"><span class="num" id="stat-trophies">–</span><span class="lbl">trophies guided</span></div>
+    <div class="stat"><span class="num" id="stat-steps">–</span><span class="lbl">numbered steps</span></div>
+    <div class="stat"><span class="num" id="stat-cited">–</span><span class="lbl">steps cited</span></div>
+    <div class="stat"><span class="num" id="stat-multi">–</span><span class="lbl">steps backed by 2+ sources</span></div>
+    <div class="stat"><span class="num" id="stat-sources">–</span><span class="lbl">sources in registry</span></div>
+    <div class="stat"><span class="num" id="stat-points">–</span><span class="lbl">PSN points total</span></div>
+  </div>
+  <p class="audit-note" id="audit-note">Audit counted live from the guide data on this page.</p>
 </header>
-<div class="controls">
-  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
-  <button id="export" type="button">Export progress</button>
-  <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
-</div>
-<table>
-  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
-  <tbody id="rows"></tbody>
-</table>
+
+<section class="panel progress-panel">
+  <div class="progress-head">
+    <h2>Your hunt</h2>
+    <p id="progress">0 of 55 earned</p>
+  </div>
+  <div class="bar"><div id="bar-fill"></div></div>
+  <p id="points-line">0 PSN points banked · 1,350 available</p>
+</section>
+
+<section class="panel controls" aria-label="Tracker controls">
+  <label>Search <input id="search" type="search" placeholder="trophy, mission, activity…"></label>
+  <label>Grade
+    <select id="grade">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label>Kind
+    <select id="kind">
+      <option value="all">All kinds</option>
+      <option value="story">Story</option>
+      <option value="missable">Missable</option>
+      <option value="collectibles">Collectibles</option>
+      <option value="activities">Activities</option>
+      <option value="online">Online</option>
+    </select>
+  </label>
+  <label class="check"><input id="spoiler" type="checkbox" checked> Spoiler shield: blur hidden trophies until clicked</label>
+  <label class="check"><input id="only-left" type="checkbox"> Show only unearned</label>
+  <button id="export" type="button">Export progress (JSON)</button>
+  <label class="import-btn">Import progress <input id="import" type="file" accept="application/json,.json"></label>
+  <button id="reset" type="button">Reset</button>
+</section>
+
+<section class="panel" id="roadmap-panel">
+  <h2>Roadmap to the platinum — 7 stages</h2>
+  <p class="hint">Built from the official descriptions and the post-story 100% checklist. Follow the stages in order and almost nothing needs a second pass.</p>
+  <div id="roadmap"></div>
+</section>
+
+<section class="panel warn" id="watch-panel">
+  <h2>Missable watch list</h2>
+  <p class="hint">One trophy is genuinely missable. The rest of this list is cheap insurance: windows and traps the guides disagree about, settled conservatively.</p>
+  <div id="watchlist"></div>
+</section>
+
+<main>
+  <h2 class="cards-title">The 55 trophies — guide, steps and sources</h2>
+  <p id="online-note" class="hint" hidden>GTA VI ships as a single-player game: the official list contains 0 online trophies, so this filter is empty by design.</p>
+  <div id="cards"></div>
+  <p id="no-results" class="hint" hidden>No trophy matches the current filters.</p>
+</main>
+
+<section class="panel" id="dispute-panel">
+  <h2>Where the guides disagree</h2>
+  <p class="hint">Ten points where launch-era sources conflict. Both positions are shown with their sources; the verdict is the call this guide makes and why.</p>
+  <div id="disputes"></div>
+</section>
+
+<footer class="panel" id="sources-panel">
+  <h2>Source registry</h2>
+  <p class="hint">Every numbered citation in the steps above points here. Sources were read on <span id="read-date">2026-11-21</span>. A link opens only when you follow it; this app fetches nothing itself. Official trophy names and descriptions are shown as PlayStation publishes them; every guide text is our own words.</p>
+  <ol id="sources"></ol>
+</footer>
+
 <script type="module" src="app.js"></script>
 </body>
 </html>
